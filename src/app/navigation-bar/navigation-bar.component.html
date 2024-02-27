@@ -1,0 +1,11 @@
+<mat-toolbar color="primary">
+  <span>Shop Demo App</span>
+  @for (item of [
+    { name: 'Kunden' },
+    { name: 'Bestellungen' },
+    { name: 'Artikel' },
+  ]; track item.name) {
+    <button mat-flat-button class="nav-button" color="primary" aria-label="TODO Example icon-button with heart icon">{{item.name}}</button>
+  }
+  <span class="nav-spacer"></span>
+</mat-toolbar>
