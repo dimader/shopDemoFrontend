@@ -1,0 +1,35 @@
+<div class="detailContent">
+    <h2>{{ product?.id ? '' : 'Neues' }} Produkt</h2>
+    <form [formGroup]="productForm" (ngSubmit)="saveProduct()">
+        <div mat-dialog-content class="content">
+
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Produkt Nummer:</mat-label>
+                    <input matInput type="text" maxlength="15" formControlName="productnumber">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Beschreibung:</mat-label>
+                    <input matInput type="text" maxlength="255" formControlName="description">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Preis:</mat-label>
+                    <input matInput type="number" maxlength="7" formControlName="price">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div mat-dialog-actions class="action-btns">
+            <button mat-stroked-button type="submit">{{product?.id ? 'Speichern': 'Anlegen'}}</button>
+            <button mat-stroked-button type="button" color="warn" (click)="goBack()">Abbrechen</button>
+            @if (product?.id) {
+            <button mat-raised-button type="button" color="warn" (click)="delete()">Löschen</button>
+            }
+        </div>
+    
+    </form>
+</div>
