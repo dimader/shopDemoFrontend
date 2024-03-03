@@ -1,0 +1,45 @@
+<div class="editDialogContent">
+    <h2>Neue Adresse anlegen</h2>
+    <form [formGroup]="addressForm" (ngSubmit)="onSubmit()">
+        <div mat-dialog-content class="content">
+
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Strasse:</mat-label>
+                    <input matInput type="text" maxlength="255" formControlName="street">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Hausnummer:</mat-label>
+                    <input matInput type="text" maxlength="5" formControlName="housenumber">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>PLZ:</mat-label>
+                    <input matInput type="text" maxlength="5" formControlName="citycode">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Stadt:</mat-label>
+                    <input matInput type="text" maxlength="255" formControlName="city">
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-radio-group aria-label="Select an option" formControlName="addressType">
+                    <mat-label><b>Art der Adresse:</b></mat-label>
+                    <mat-radio-button value="l">Lieferadresse</mat-radio-button>
+                    <mat-radio-button value="r">Rechnungsadresse</mat-radio-button>
+                </mat-radio-group>
+            </div>
+        </div>
+        
+        <div mat-dialog-actions class="action-btns">
+            <button mat-stroked-button type="submit">Anlegen</button>
+            <button mat-raised-button type="button" color="warn" [mat-dialog-close]="false">Abbrechen</button>
+        </div>
+    
+    </form>
+</div>

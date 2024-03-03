@@ -1,1 +1,47 @@
-<p>customers works!</p>
+<div class="head-row">
+  <h1>Kundenübersicht</h1>
+  <button mat-stroked-button type="button" color="warn" (click)="createCustomer()">Neuen Kunden anlegen</button>
+</div>
+
+<mat-divider></mat-divider>
+
+<table mat-table class="customers-table mat-elevation-z8" [dataSource]="customersList">
+    
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef>ID</th>
+      <td mat-cell *matCellDef="let element">{{element.id}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="customernumber">
+      <th mat-header-cell *matHeaderCellDef>Kundennummer</th>
+      <td mat-cell *matCellDef="let element">{{element.customernumber}}</td>
+    </ng-container>
+    
+    <ng-container matColumnDef="salutation">
+      <th mat-header-cell *matHeaderCellDef>Anrede</th>
+      <td mat-cell *matCellDef="let element">{{element.salutation}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="forename">
+      <th mat-header-cell *matHeaderCellDef>Vorname</th>
+      <td mat-cell *matCellDef="let element">{{element.forename}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Name</th>
+      <td mat-cell *matCellDef="let element">{{element.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="bdate">
+      <th mat-header-cell *matHeaderCellDef>Geb. Datum</th>
+      <td mat-cell *matCellDef="let element">{{element.bdate}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="createdat">
+      <th mat-header-cell *matHeaderCellDef>Erstellt am</th>
+      <td mat-cell *matCellDef="let element">{{element.createdat}}</td>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row (click)="openDetails(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

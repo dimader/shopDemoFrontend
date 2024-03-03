@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Bestätigen</h2>
+<mat-dialog-content>
+  <p>Wollen Sie die Aktion wirklich ausführen?</p>
+  
+</mat-dialog-content>
+<div>
+  <mat-dialog-actions class="action-btns">
+    <button mat-button (click)="cancel()">Abbrechen</button>
+    <button mat-raised-button (click)="confirm()" cdkFocusInitial color="warn">OK</button>
+  </mat-dialog-actions>
+</div>

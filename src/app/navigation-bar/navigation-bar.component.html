@@ -1,11 +1,12 @@
 <mat-toolbar color="primary">
   <span>Shop Demo App</span>
   @for (item of [
-    { name: 'Kunden' },
-    { name: 'Bestellungen' },
-    { name: 'Artikel' },
+    { name: 'Kunden', link: '' },
+    { name: 'Bestellungen', link: '\orders' },
+    { name: 'Artikel', link: '\products' },
   ]; track item.name) {
-    <button mat-flat-button class="nav-button" color="primary" aria-label="TODO Example icon-button with heart icon">{{item.name}}</button>
+    <a [routerLink]="item.link">
+      <button mat-flat-button class="nav-button" color="primary" aria-label="TODO Example icon-button with heart icon">{{item.name}}</button>
+    </a>
   }
-  <span class="nav-spacer"></span>
 </mat-toolbar>
