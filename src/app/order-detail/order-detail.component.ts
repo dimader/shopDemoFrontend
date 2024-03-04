@@ -3,7 +3,6 @@ import { Customer } from '../interfaces/customer';
 import { ShopService } from '../shop.service';
 import { MatTableModule } from '@angular/material/table';
 import { ActivatedRoute, Router } from '@angular/router';
-
 import { FormsModule } from '@angular/forms';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
@@ -11,9 +10,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
-import {
-  MatDialog,
-} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { Order } from '../interfaces/order';
 import { OrderItem } from '../interfaces/orderItem';

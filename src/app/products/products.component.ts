@@ -7,7 +7,6 @@ import { MatDividerModule } from '@angular/material/divider'
 import { ShopService } from '../shop.service';
 import { Product } from '../interfaces/product';
 
-
 @Component({
   selector: 'app-products',
   standalone: true,

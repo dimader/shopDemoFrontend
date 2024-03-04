@@ -12,9 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import {ReactiveFormsModule} from '@angular/forms';
-import {
-  MatDialog,
-} from '@angular/material/dialog';
+import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { formatDate } from '@angular/common';
 import { AddressEditDialogComponent } from '../address-edit-dialog/address-edit-dialog.component';
@@ -44,7 +42,6 @@ export class CustomerDetailComponent {
   route: ActivatedRoute = inject(ActivatedRoute);
 
   displayedColumns: string[] = ['street', 'housenumber', 'citycode', 'city', 'addressType', 'action'];
-
   customerForm: FormGroup;
 
   constructor(private formBuilder: FormBuilder, 
