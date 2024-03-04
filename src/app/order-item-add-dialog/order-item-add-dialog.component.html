@@ -1,0 +1,28 @@
+<div class="editDialogContent">
+    <h2>Neue Position hinzufügen</h2>
+    <form [formGroup]="positionForm" (ngSubmit)="onSubmit()">
+        <div mat-dialog-content class="content">
+            <div class="row">
+                <mat-form-field>
+                    <mat-label>Produkt</mat-label>
+                    <mat-select [(value)]="selectedProduct" (selectionChange)="refreshPrice()">
+                        @for (item of productList; track item) {
+                            <mat-option [value]="item.id">{{item.productnumber + ' (' + formatPrice(item.price) + ') ' + item.description}}</mat-option>
+                        }
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="row">
+                <mat-form-field appearance="outline">
+                    <mat-label>Stückpreis:</mat-label>
+                    <input matInput type="number" maxlength="5" formControlName="price">
+                </mat-form-field>
+            </div>
+        </div>
+        
+        <div mat-dialog-actions class="action-btns">
+            <button mat-raised-button type="button" [mat-dialog-close]="false">Abbrechen</button>
+            <button mat-raised-button type="submit" color="primary">Anlegen</button>
+        </div>
+    </form>
+</div>

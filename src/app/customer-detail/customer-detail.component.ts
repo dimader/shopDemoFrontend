@@ -87,9 +87,9 @@ export class CustomerDetailComponent {
         });
       } else {
         this.shopService.createCustomer(this.customerForm.value as Customer)
-        .then(customer => {
-          this.loadCustomer(customer.id);
-        });
+          .then(customer => {
+            this.loadCustomer(customer.id);
+          });
       }
     }
   }
@@ -105,7 +105,7 @@ export class CustomerDetailComponent {
           this.goBack();
         });
       }
-    }); 
+    });
   }
 
   deleteAddress(id: number) {

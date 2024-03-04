@@ -1,38 +1,37 @@
 <div class="head-row">
-    <h1>Produktübersicht</h1>
-    <button mat-stroked-button type="button" color="warn" (click)="createProduct()">Neues Produkt anlegen</button>
-  </div>
-  
-  <mat-divider></mat-divider>
-  
-  <table mat-table class="products-table mat-elevation-z8" [dataSource]="productsList">
-      
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>ID</th>
-        <td mat-cell *matCellDef="let element">{{element.id}}</td>
-      </ng-container>
-  
-      <ng-container matColumnDef="price">
-        <th mat-header-cell *matHeaderCellDef>Preis</th>
-        <td mat-cell *matCellDef="let element">{{formatPrice(element.price)}}</td>
-      </ng-container>
-      
-      <ng-container matColumnDef="productnumber">
-        <th mat-header-cell *matHeaderCellDef>Produktnummer</th>
-        <td mat-cell *matCellDef="let element">{{element.productnumber}}</td>
-      </ng-container>
-  
-      <ng-container matColumnDef="description">
-        <th mat-header-cell *matHeaderCellDef>Beschreibung</th>
-        <td mat-cell *matCellDef="let element">{{element.description}}</td>
-      </ng-container>
-  
-      <ng-container matColumnDef="createdat">
-        <th mat-header-cell *matHeaderCellDef>Erstellt am</th>
-        <td mat-cell *matCellDef="let element">{{element.createdat}}</td>
-      </ng-container>
-    
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row (click)="openDetails(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
-  
+  <h1>Produktübersicht</h1>
+  <button mat-stroked-button type="button" color="warn" (click)="createProduct()">Neues Produkt anlegen</button>
+</div>
+
+<mat-divider></mat-divider>
+
+<table mat-table class="products-table mat-elevation-z8" [dataSource]="productsList">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef>ID</th>
+    <td mat-cell *matCellDef="let element">{{element.id}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="price">
+    <th mat-header-cell *matHeaderCellDef>Preis</th>
+    <td mat-cell *matCellDef="let element">{{formatPrice(element.price)}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="productnumber">
+    <th mat-header-cell *matHeaderCellDef>Produktnummer</th>
+    <td mat-cell *matCellDef="let element">{{element.productnumber}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="description">
+    <th mat-header-cell *matHeaderCellDef>Beschreibung</th>
+    <td mat-cell *matCellDef="let element">{{element.description}}</td>
+  </ng-container>
+
+  <ng-container matColumnDef="createdat">
+    <th mat-header-cell *matHeaderCellDef>Erstellt am</th>
+    <td mat-cell *matCellDef="let element">{{element.createdat}}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row (click)="openDetails(row)" *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
