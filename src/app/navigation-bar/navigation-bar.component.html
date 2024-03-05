@@ -3,7 +3,7 @@
   @for (item of [
     { name: 'Kunden', link: '' },
     { name: 'Bestellungen', link: '\orders' },
-    { name: 'Artikel', link: '\products' },
+    { name: 'Produkte', link: '\products' },
   ]; track item.name) {
     <a [routerLink]="item.link">
       <button mat-flat-button class="nav-button" color="primary">{{item.name}}</button>
