@@ -8,6 +8,9 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { MatRadioModule } from '@angular/material/radio';
 
+/**
+ * Dialog zur Erfassung einer Adresse.
+ */
 @Component({
   selector: 'app-address-edit-dialog',
   standalone: true,
@@ -45,13 +48,16 @@ export class AddressEditDialogComponent {
     this.addressForm.patchValue(this.data);
   }
 
+  /**
+   * Neuen Eintrag anlegen.
+   */
   onSubmit() {
     if (this.addressForm.valid) {
       const addressData = {...this.addressForm.value, customer: this.data.customerid };
       this.shopService.createAddress(addressData)
-      .then(result => {
-        this.dialogRef.close(true);
-      });
+        .then(result => {
+          this.dialogRef.close(true);
+        });
     }
   }
 }

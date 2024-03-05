@@ -11,12 +11,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { formatDate } from '@angular/common';
 import { AddressEditDialogComponent } from '../address-edit-dialog/address-edit-dialog.component';
 
+/**
+ * Kunde Detail Seite.
+ */
 @Component({
   selector: 'app-customer-detail',
   standalone: true,
@@ -64,6 +67,10 @@ export class CustomerDetailComponent {
     }
   }
 
+  /**
+   * Laden der Daten für die Maske.
+   * @param id ID
+   */
   loadCustomer(id: number): void {
     this.shopService.getCustomerById(id).then(data => {
       this.customer = data.customer;
@@ -73,6 +80,9 @@ export class CustomerDetailComponent {
     });
   }
 
+  /**
+   * Änderungen Speichern.
+   */
   saveCustomer(): void {
     if (this.customerForm.valid) {
       if (this.customer?.id) {
@@ -91,6 +101,9 @@ export class CustomerDetailComponent {
     }
   }
 
+  /**
+   * Aktuellen Eintrag löschen.
+   */
   delete(): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {confirm: false},
@@ -105,6 +118,10 @@ export class CustomerDetailComponent {
     });
   }
 
+  /**
+   * Löscht die Adresse mit der übergebenen ID.
+   * @param id Address ID
+   */
   deleteAddress(id: number) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {confirm: false},
@@ -121,10 +138,16 @@ export class CustomerDetailComponent {
     }); 
   }
 
+  /**
+   * Zurück navigieren.
+   */
   goBack() {
     this.router.navigate(['/']);
   }
 
+  /**
+   * Öffnet Erfassungsdialog für eine neue Adresse.
+   */
   addAddress() {
     const dialogRef = this.dialog.open(AddressEditDialogComponent, {
       data: { customerid: this.customer!.id },

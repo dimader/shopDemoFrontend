@@ -6,10 +6,13 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { Product } from '../interfaces/product';
 import { MatDialogRef, MAT_DIALOG_DATA, MatDialogModule } from '@angular/material/dialog';
 
+/**
+ * Dialog zur Erfassung einer neuen Position zu einer Bestellung.
+ */
 @Component({
   selector: 'app-order-item-add-dialog',
   standalone: true,
@@ -46,12 +49,18 @@ export class OrderItemAddDialogComponent {
     this.loadProducts();
   }
 
+  /**
+   * Lädt die Produkte für die Auswahlbox.
+   */
   loadProducts(): void {
     this.shopService.getAllProducts().then(data => {
       this.productList = data;
     });
   }
 
+  /**
+   * Neuen Eintrag anlegen.
+   */
   onSubmit() {
     if (this.positionForm.valid) {
       const newData = {...this.positionForm.value, product: this.selectedProduct, shoporder: this.data.shoporder };
@@ -62,15 +71,18 @@ export class OrderItemAddDialogComponent {
     }
   }
 
-   /**
+  /**
    * Formatiert einen Preis.
    * @param price Preis.
    * @returns String.
-   */
-   formatPrice(price: number): string {
+  */
+  formatPrice(price: number): string {
     return this.format.format(price);
   }
 
+  /**
+   * Übernimmt den Preis in das Input-Feld nachdem ein Produkt ausgewählt wurde.
+   */
   refreshPrice() {
     const selProduct = this.productList.find(p => p.id === this.selectedProduct)
     if (selProduct) {

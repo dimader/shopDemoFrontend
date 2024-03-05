@@ -7,6 +7,9 @@ import { MatDividerModule } from '@angular/material/divider'
 import { Customer } from '../interfaces/customer';
 import { ShopService } from '../shop.service';
 
+/**
+ * Kunden Übersicht.
+ */
 @Component({
   selector: 'app-customers',
   standalone: true,
@@ -33,10 +36,17 @@ export class CustomersComponent {
     })
   }
 
+  /**
+   * Detail Seite öffnen.
+   * @param row Auswahl.
+   */
   openDetails(row: Customer) {
     this.router.navigate(['/customer/' + row.id]);
   }
 
+  /**
+   * Neuen Eintrag anlegen.
+   */
   createCustomer() {
     this.router.navigate(['/customer/']);
   }

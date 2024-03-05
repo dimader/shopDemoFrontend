@@ -7,6 +7,9 @@ import { MatDividerModule } from '@angular/material/divider'
 import { ShopService } from '../shop.service';
 import { Product } from '../interfaces/product';
 
+/**
+ * Produkte Übersicht.
+ */
 @Component({
   selector: 'app-products',
   standalone: true,
@@ -36,10 +39,17 @@ export class ProductsComponent {
     })
   }
 
+  /**
+   * Detail Seite öffnen.
+   * @param row Auswahl.
+   */
   openDetails(row: Product) {
     this.router.navigate(['/product/' + row.id]);
   }
 
+  /**
+   * Neuen Eintrag anlegen.
+   */
   createProduct() {
     this.router.navigate(['/product/']);
   }

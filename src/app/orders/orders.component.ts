@@ -7,6 +7,9 @@ import { MatDividerModule } from '@angular/material/divider'
 import { ShopService } from '../shop.service';
 import { OrderOverview } from '../interfaces/orderOverview';
 
+/**
+ * Bestellungen Übersicht.
+ */
 @Component({
   selector: 'app-orders',
   standalone: true,
@@ -32,10 +35,17 @@ export class OrdersComponent {
     })
   }
 
+  /**
+   * Detail Seite öffnen.
+   * @param row Auswahl.
+   */
   openDetails(row: OrderOverview) {
     this.router.navigate(['/order/' + row.order.id]);
   }
 
+  /**
+   * Neuen Eintrag anlegen.
+   */
   createOrder() {
     this.router.navigate(['/order/']);
   }

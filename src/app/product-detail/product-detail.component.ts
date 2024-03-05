@@ -11,6 +11,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { Product } from '../interfaces/product';
 
+/**
+ * Produkt Detail Seite.
+ */
 @Component({
   selector: 'app-product-detail',
   standalone: true,
@@ -49,6 +52,10 @@ export class ProductDetailComponent {
     }
   }
 
+  /**
+   * Laden der Daten für die Maske.
+   * @param id ID
+   */
   loadProduct(id: number): void {
     this.shopService.getProductById(id).then(data => {
       this.product = data;
@@ -57,6 +64,9 @@ export class ProductDetailComponent {
     });
   }
 
+  /**
+   * Änderungen Speichern.
+   */
   saveProduct(): void {
     if (this.productForm.valid) {
       if (this.product?.id) {
@@ -73,6 +83,9 @@ export class ProductDetailComponent {
     }
   }
 
+  /**
+   * Aktuellen Eintrag löschen.
+   */
   delete(): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {confirm: false},
@@ -87,6 +100,9 @@ export class ProductDetailComponent {
     }); 
   }
 
+  /**
+   * Zurück navigieren.
+   */
   goBack() {
     this.router.navigate(['/products']);
   }

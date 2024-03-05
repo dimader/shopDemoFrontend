@@ -1,5 +1,8 @@
 import { Customer } from "./customer";
 
+/**
+ * Kunden-Adresse.
+ */
 export interface Address {
     id: number;
     olVersion: number;
@@ -13,6 +16,9 @@ export interface Address {
     changedat: Date;
 }
 
+/**
+ * Kunde und alle seine Adressen.
+ */
 export interface CustomerAddress {
     customer: Customer;
     addresses: Address[];

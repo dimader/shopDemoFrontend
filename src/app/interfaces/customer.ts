@@ -1,3 +1,6 @@
+/**
+ * Kunde.
+ */
 export interface Customer {
     id: number;
     olversion: number;

@@ -1,3 +1,6 @@
+/**
+ * Produkt.
+ */
 export interface Product {
     id: number;
     olversion: number;

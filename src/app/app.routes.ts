@@ -6,6 +6,9 @@ import { ProductDetailComponent } from './product-detail/product-detail.componen
 import { OrdersComponent } from './orders/orders.component';
 import { OrderDetailComponent } from './order-detail/order-detail.component';
 
+/**
+ * Routen der Anwendung.
+ */
 export const routes: Routes = [
     // Übersichtseiten
     {

@@ -9,7 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatButtonModule } from '@angular/material/button';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {ReactiveFormsModule} from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.component';
 import { Order } from '../interfaces/order';
@@ -17,6 +17,9 @@ import { OrderItem } from '../interfaces/orderItem';
 import { MatIconModule } from '@angular/material/icon';
 import { OrderItemAddDialogComponent } from '../order-item-add-dialog/order-item-add-dialog.component';
 
+/**
+ * Bestellung Detail Seite.
+ */
 @Component({
   selector: 'app-order-detail',
   standalone: true,
@@ -58,6 +61,10 @@ export class OrderDetailComponent {
     this.load();
   }
   
+  /**
+   * Laden der Daten für die Maske.
+   * @param id ID
+   */
   load() {
     const id = this.route.snapshot.params['id'];
     this.shopService.getAllCustomers().then(customers => {
@@ -70,6 +77,10 @@ export class OrderDetailComponent {
     })
   }
 
+  /**
+   * Lädt die Bestellung.
+   * @param id Order ID.
+   */
   loadOrder(id: number): void {
     this.shopService.getOrderById(id).then(data => {
       this.order = data
@@ -79,12 +90,19 @@ export class OrderDetailComponent {
     });
   }
 
+  /**
+   * Lädt die Positionen (ShopOrderItems).
+   * @param id Order ID.
+   */
   loadOrderItems(id: number): void {
     this.shopService.getOrderItemsByOrderId(id).then(data => {
       this.orderitemsList = data;
     });
   }
 
+  /**
+   * Änderungen Speichern.
+   */
   saveOrder() {
     if (this.orderForm.valid) {
       const newData = { ...this.order, ...this.orderForm.value, customer: this.selectedCustomer};
@@ -102,6 +120,9 @@ export class OrderDetailComponent {
     }
   }
 
+  /**
+   * Aktuellen Eintrag löschen.
+   */
   delete(): void {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {confirm: false},
@@ -116,10 +137,16 @@ export class OrderDetailComponent {
     }); 
   }
 
+  /**
+   * Zurück navigieren.
+   */
   goBack() {
     this.router.navigate(['/orders']);
   }
 
+  /**
+   * Öffnet Erfassungsdialog für eine neue Position.
+   */
   addPosition() {
     const dialogRef = this.dialog.open(OrderItemAddDialogComponent, {
       data: { shoporder: this.order!.id },
@@ -131,6 +158,10 @@ export class OrderDetailComponent {
     }); 
   }
 
+  /**
+   * Löscht den Eintrag mit der übergebenen ID.
+   * @param id Position (ShopOrderItem) ID.
+   */
   deletePosition(id: number) {
     const dialogRef = this.dialog.open(ConfirmDialogComponent, {
       data: {confirm: false},

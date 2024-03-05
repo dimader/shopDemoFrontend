@@ -13,6 +13,9 @@ export interface DialogData {
   confirm: boolean;
 }
 
+/**
+ * Bestätigungsdialog.
+ */
 @Component({
   selector: 'app-confirm-dialog',
   standalone: true,
@@ -25,14 +28,22 @@ export interface DialogData {
   styleUrl: './confirm-dialog.component.css'
 })
 export class ConfirmDialogComponent {
+  
   constructor(
     public dialogRef: MatDialogRef<ConfirmDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: DialogData,
   ) {}
 
+  /**
+   * Aktion abbrechen.
+   */
   cancel(): void {
     this.dialogRef.close();
   }
+
+  /**
+   * Aktion bestätigt.
+   */
   confirm(): void {
     this.data.confirm = true;
     this.dialogRef.close({confirm: true});

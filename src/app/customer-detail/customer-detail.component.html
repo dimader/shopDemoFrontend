@@ -32,11 +32,11 @@
         </div>
 
         <div mat-dialog-actions class="action-btns">
-            <button mat-stroked-button type="submit">{{customer?.id ? 'Speichern': 'Anlegen'}}</button>
-            <button mat-stroked-button type="button" color="warn" (click)="goBack()">Abbrechen</button>
+            <button mat-stroked-button type="button" (click)="goBack()">Zurück</button>
             @if (customer?.id) {
-            <button mat-raised-button type="button" color="warn" (click)="delete()">Löschen</button>
+            <button mat-stroked-button type="button" color="warn" (click)="delete()">Löschen</button>
             }
+            <button mat-raised-button type="submit" color="primary">{{customer?.id ? 'Speichern': 'Anlegen'}}</button>
         </div>
     
     </form>
@@ -87,7 +87,7 @@
 
     <div mat-dialog-actions class="action-btns">
         @if (customer?.id) {
-        <button mat-stroked-button type="button" (click)="addAddress()">Adresse Hinzufügen</button>
+        <button mat-raised-button color="primary" type="button" (click)="addAddress()">Adresse Hinzufügen</button>
         }
     </div>
 </div>

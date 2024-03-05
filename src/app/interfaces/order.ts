@@ -1,3 +1,6 @@
+/**
+ * Bestellung.
+ */
 export interface Order {
     id: number;
     ordernumber: string;
