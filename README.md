@@ -1,27 +1,33 @@
-# ShopDemo-Client
+# ShopAdmin-Demo Angular-Client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.2.1.
+Für eine kleine Shop-Verwaltung Demo die ich gebastelt habe ist dies das Frontend.
 
-## Development server
+Zu diesem Frontend gibt es ein passendes Backend (mit SpringBoot). Das Repository "shopDemoBackend" dazu findet ihr auch auf meiner GitHub-Seite.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Mit dieser kleinen Demo-App können verschiedene Fachobjekte gepflegt werden (CRUD-Operationen). Die passenden REST-Services werden vom Backend bereitgestellt.
 
-## Code scaffolding
+## Features
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+* CRUD-Operationen für verschiedene Entitäten, Übersichtsdarstellung in Tabelle und Detailansichten über Dialog
+* Verwendet angular/material
+* Pflege und Neuanlage einer Entität erfolgen über den gleichen Dialog
+* Löschen Aktion muss über Sicherheitsabfrage bestätigt werden
 
-## Build
+## Kurzbeschreibung Fachlichkeit
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+* Kunden (Customers) können gepflegt werden, alle CRUD-Operationen werden bereitgestellt.
+* Kunden können mehrere Adressen haben. Adressen können nur angelegt und gelöscht werden.
+* Es gibt Produkte (Product), alle CRUD-Operationen werden bereitgestellt.
+* Produkte können in einer Bestellung (Order) gesammelt werden. 
+* Die Zuweisung von Produkten zu einer Bestellung erfolgt über ein OrderItem.
+* Der Preis eines Produkts kann in einer Bestellung abweichen.
 
-## Running unit tests
+## Start
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Die Anwendung kann im Entwickler-Modus gestartet werden über
+```
+npm start
+```
+(dieses führt ein np serve aus).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Die Anwendung ist dann über `http://localhost:4200/` erreichbar.
